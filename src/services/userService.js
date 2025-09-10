@@ -1,6 +1,11 @@
 const { where } = require ("sequelize");
 const User = require ('../models/userModel');
 
+/**
+ * @class
+ * @method
+ * @async
+ */
 class UserService{
     
         async findAllUsers(){

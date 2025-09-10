@@ -1,5 +1,10 @@
 const { Sequelize } = require ("sequelize");
 
+/**
+ * @class
+ * @constructor
+ * Defines the connection with MySQL
+ */
 class Database{
     constructor(){
         this.init();

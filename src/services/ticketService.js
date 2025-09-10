@@ -1,6 +1,11 @@
 const { where } = require("sequelize");
 const Ticket = require("../models/ticketModel");
 
+/**
+ * @class
+ * @method
+ * @async
+ */
 class TicketService{
 
     async findAllTickets(){

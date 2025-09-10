@@ -1,7 +1,14 @@
 const express = require('express');
 const database = require('./config/database');
+/**
+ * app.js requires the routes for Users and Tickets
+ */
 const userRouter = require('./routes/userRoute');
 const ticketsRouter = require('./routes/ticketRoute');
+
+/**
+ * app.js requires the relations of Users and Tickets
+ */
 const { User, Ticket } = require('./models/relations'); // importa models + relations
 
 const app = express();
@@ -15,6 +22,10 @@ app.use((req, res) => {
     res.status(404).json({ error: "Route not found" });
 });
 
+/**
+ * Database connection
+ * @async
+ */
 database.db
     .sync({ force: false }) // alter: true se quiser atualizar tabelas sem perder dados
     .then(() => {

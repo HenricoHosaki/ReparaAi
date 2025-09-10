@@ -3,6 +3,9 @@ const router = express.Router();
 const TicketController = require ('../controllers/ticketController')
 const TicketControll = new TicketController();
 
+/**
+ * Ticket routes
+ */
 router.get("/tickets/" , TicketControll.findAllTickets);
 router.post("/tickets/" , TicketControll.createTicket);
 router.get("/tickets/:idTicket" , TicketControll.findTicketByPk);

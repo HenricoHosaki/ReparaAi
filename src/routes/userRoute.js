@@ -3,6 +3,9 @@ const router = express.Router();
 const UserController = require ('../controllers/userController')
 const UserControll = new UserController();
 
+/**
+ * User routes
+ */
 router.get('/user/' , UserControll.findAllUsers)
 router.post('/user/' , UserControll.registerUser)
 router.get('/user/:idUser' , UserControll.findUserByPk)

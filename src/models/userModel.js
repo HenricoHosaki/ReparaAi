@@ -1,5 +1,9 @@
 const database = require("../config/database")
 
+/**
+ * @class
+ * @constructor
+ */
 class UserModel{
     constructor(){
         this.models = database.db.define("Users",{
