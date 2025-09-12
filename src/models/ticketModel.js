@@ -30,6 +30,10 @@ class UserTicket {
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE'
             },
+            date: {
+                type: database.db.Sequelize.DATE,
+                defaultValue: database.db.Sequelize.NOW
+            },
             email: {
                 type: database.db.Sequelize.STRING,
                 allowNull: false,

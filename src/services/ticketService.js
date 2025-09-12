@@ -1,5 +1,7 @@
 const { where } = require("sequelize");
 const Ticket = require("../models/ticketModel");
+const Track = require("./ticketTrackServices");
+const track = new Track();
 
 /**
  * @class
@@ -17,7 +19,13 @@ class TicketService{
     }
 
     async createTicket(ticketData){
-        return await Ticket.create(ticketData)
+        const ticket = await Ticket.create(ticketData)
+
+        await track.createTrack({
+            idTicket: ticket.idTicket
+        })
+
+        return ticket;
     }
 
     async deleteTicket(idTicket) {

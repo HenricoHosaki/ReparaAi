@@ -28,7 +28,6 @@ class UserController{
      * @async
      * @param { idUser } req.params
      */
-     
     async findUserByPk(req,res){
         try{
             const { idUser } = req.params;

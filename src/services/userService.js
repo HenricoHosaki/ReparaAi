@@ -27,6 +27,10 @@ class UserService{
         async updateUser(idUser, userData) {
             return await User.update(userData, { where: { idUser } });
     }
+
+         async findByEmail(email) {
+            return await User.findOne({ where: { email } });
+    }
 }
 
 module.exports = UserService;

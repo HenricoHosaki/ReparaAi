@@ -1,5 +1,6 @@
 const User = require('./userModel');
 const Ticket = require('./ticketModel');
+const TicketTrack = require('./ticketTrackModel');
 
 /**
  * Relate the tables User and Tickets (1:N)
@@ -7,4 +8,7 @@ const Ticket = require('./ticketModel');
 User.hasMany(Ticket, {foreignKey: 'idUser', as: 'tickets'})
 Ticket.belongsTo(User, {foreignKey: 'idUser', as: 'user'})
 
-module.exports = { User, Ticket };
+Ticket.hasMany(TicketTrack, { foreignKey: "idTicket", as: 'tickets' });
+TicketTrack.belongsTo(Ticket, { foreignKey: "idTicket", as: 'ticketstracks' });
+
+module.exports = { User, Ticket, TicketTrack };
