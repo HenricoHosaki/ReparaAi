@@ -1,20 +1,22 @@
-# Projeto Laboratório de Engenharia de Software
+# Project >> Software Engineering Laboratory
 
-## Nome do projeto: Repara Aí
+## Project Name: Repara Aí
 
-O projeto foi criado para atender as necessidades de um município utilizando de solicitações para gerenciar problemas comuns e corriqueiros.
+The project was created to attend the necessities of cities using tickets to manage the commom problems.
 
-## Como rodar o projeto
+## Running the project
 
-**Instalação de tecnologias:**
+**Tecnologies and instalation:**
 
 Node: https://www.nodejs.tech/pt-br/download 
 
-(recomendado última versão LTS!)
+(recommend to instal the LTS version!)
 
-**Dentro da IDE:**
-
+**Inside the IDE:**
+```
 Express: npm i express
 MySQL: npm i mysql2
 Jest para testes: npm i jest --save-dev
 Sequelize: npm i sequelize
+JWT: npm i jsonwebtoken
+```
