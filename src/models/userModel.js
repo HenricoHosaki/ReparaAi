@@ -16,6 +16,10 @@ class UserModel{
                 type: database.db.Sequelize.STRING,
                 allowNull: false
             },
+            hash_password:{
+                type: database.db.Sequelize.STRING,
+                allowNull: false
+            },
             email: {
                 type: database.db.Sequelize.STRING,
                 allowNull: false,
