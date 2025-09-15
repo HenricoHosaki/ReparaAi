@@ -34,11 +34,6 @@ class UserTicket {
                 type: database.db.Sequelize.DATE,
                 defaultValue: database.db.Sequelize.NOW
             },
-            email: {
-                type: database.db.Sequelize.STRING,
-                allowNull: false,
-                validate: { isEmail: true }
-            },
             localization: {
                 type: database.db.Sequelize.STRING,
                 allowNull: false
