@@ -1,4 +1,5 @@
 const UserSer = require('../services/userService');
+const bcrypt = require("bcrypt")
 const UserService = new UserSer();
 class UserController{
     
@@ -52,21 +53,27 @@ class UserController{
      * @async
      * @param { userData } req.body
      */
-    async registerUser(req,res){
-        try{
-            const userData = req.body;
-            const userRegistered = await UserService.registerUser(userData);
+  async registerUser(req, res) {
+    try {
+        const { hash_password, ...rest } = req.body;
 
-            res.status(201).json({
-                Registered: userRegistered
-            })
-        }catch(e){
-            res.status(400).json({
-                Error: e.message
-            })
-        }
+        const hashedPassword = await bcrypt.hash(hash_password, 10);
+
+        const userRegistered = await UserService.registerUser({
+            ...rest,
+            hash_password: hashedPassword
+        });
+
+        res.status(201).json({
+            message: "Usuário registrado com sucesso",
+            user: userRegistered
+        });
+    } catch (e) {
+        res.status(400).json({
+            Error: e.message
+        });
     }
-
+}
     /**
      * @async
      * @param { idUser } req.params

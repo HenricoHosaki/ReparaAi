@@ -24,7 +24,7 @@ class TokenController {
             });
     
         const token = jwt.sign(
-            { id: user.idUser , email: user.email }, privateKey,{ algorithm: "RS256", expiresIn: "2h" });
+            { id: user.idUser , email: user.email }, privateKey,{ algorithm: "RS256", expiresIn: "1h" });
         
         res.json({ token });
     }
@@ -35,3 +35,5 @@ class TokenController {
         }
     }
 }
+
+module.exports = TokenController;
