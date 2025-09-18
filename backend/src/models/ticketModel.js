@@ -34,7 +34,19 @@ class UserTicket {
                 type: database.db.Sequelize.DATE,
                 defaultValue: database.db.Sequelize.NOW
             },
-            localization: {
+            state: {
+                type: database.db.Sequelize.STRING,
+                allowNull: false
+            },
+            city: {
+                type: database.db.Sequelize.STRING,
+                allowNull: false
+            },
+            avenue: {
+                type: database.db.Sequelize.STRING,
+                allowNull: false
+            },
+            road: {
                 type: database.db.Sequelize.STRING,
                 allowNull: false
             }
