@@ -36,7 +36,7 @@ database.db
     .sync({ force: false }) // alter: true if we need to reset the DB structure
     .then(() => {
         app.listen(port, () => {
-            console.log('Server running in ' + port);
+            console.log('Server running in' + port);
         });
     })
     .catch((e) => {

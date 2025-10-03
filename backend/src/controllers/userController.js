@@ -12,7 +12,7 @@ class UserController{
 
                 if(findAll.length === 0){
             res.status(404).json({
-                message: "Empty users list"
+                message: "Empty users list. Create a new user"
             })}
                 else{
             res.status(200).json({
@@ -36,7 +36,7 @@ class UserController{
                
                 if(!userData){
             res.status(404).json({
-                message: "User not found"
+                message: "User not found or not exists"
             })}
                 else{
             res.status(200).json({
@@ -65,7 +65,7 @@ class UserController{
         });
 
         res.status(201).json({
-            message: "Usuário registrado com sucesso",
+            message: "User registered successfully",
             user: userRegistered
         });
     } catch (e) {
@@ -84,7 +84,7 @@ class UserController{
 
             if(!idUser){
                 res.status(404)({
-                    message: "User not found"
+                    message: "User not found or not exists"
                 })}
             else{
                 const deletedUser = await UserService.deleteUser(idUser)
@@ -109,7 +109,7 @@ class UserController{
 
             if(!idUser){
                 res.status(404).json({
-                    message: "User not found"
+                    message: "User not found or not exists"
                 })}
             else{
             await UserService.updateUser(idUser, userData);
