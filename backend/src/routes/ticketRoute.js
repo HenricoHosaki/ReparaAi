@@ -5,7 +5,8 @@ const TicketController = require ('../controllers/ticketController')
 const TicketControll = new TicketController();
 
 /**
- * Ticket routes
+ * Ticket Routes
+ * All routes are protected by the verifyToken middleware
  */
 router.get("/tickets/" , verifyToken, TicketControll.findAllTickets);
 router.post("/tickets/" , verifyToken, TicketControll.createTicket);

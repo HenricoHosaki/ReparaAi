@@ -8,6 +8,7 @@ const UserControll = new UserController();
 
 /**
  * User routes
+ * All routes are protected by the verifyToken middleware, except for user registration and login
  */
 router.get('/user/' ,verifyToken, UserControll.findAllUsers)
 router.post('/user/',UserControll.registerUser)
