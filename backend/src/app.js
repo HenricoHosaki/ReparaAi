@@ -9,7 +9,10 @@ const ticketsRouter = require('./routes/ticketRoute');
 const ticketTrack = require('./routes/ticketTrackRoute')
 
 /**
- * app.js requires the relations of Users, Tickets and Tracks
+ * @requires ./models/relations
+ * @requires ./models/userModel
+ * @requires ./models/ticketModel
+ * @requires ./models/ticketTrackModel
  */
 const { User, Ticket, TicketTrack } = require('./models/relations'); // importa models + relations
 
@@ -30,7 +33,7 @@ app.use((req, res) => {
  * @async
  */
 database.db
-    .sync({ force: false }) // alter: true se quiser atualizar tabelas sem perder dados
+    .sync({ force: false }) // alter: true if we need to reset the DB structure
     .then(() => {
         app.listen(port, () => {
             console.log('Server running in ' + port);
