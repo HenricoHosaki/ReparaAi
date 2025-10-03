@@ -14,7 +14,12 @@ class TicketTrack {
             },
             idTicket: {
                 type: database.db.Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+
+                references:{
+                    model: 'Tickets',
+                    key: 'idTicket'
+                }
             },
             date: {
                 type: database.db.Sequelize.DATE,
@@ -22,8 +27,7 @@ class TicketTrack {
                 defaultValue: database.db.Sequelize.NOW
             },
             status: {
-                type: database.db.Sequelize.ENUM,
-                values: ["Aberto", "Em andamento", "Resolvido", "Fechado"],
+                type: database.db.Sequelize.ENUM("Aberto", "Em andamento", "Resolvido", "Fechado"),
                 defaultValue: "Aberto",
                 allowNull: false
             }
