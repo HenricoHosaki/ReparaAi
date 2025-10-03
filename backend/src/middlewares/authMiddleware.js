@@ -13,7 +13,7 @@ function verifyToken(req, res, next) {
   try {
     const decoded = jwt.verify(token, publicKey, { algorithms: ["RS256"] });
     req.user = decoded;
-    next();
+    next(); //concede the execution to the next middleware or the final route
   } catch (err){
     res.status(401).json({ message: "Invalid token" });
   }
