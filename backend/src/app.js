@@ -1,6 +1,6 @@
 const express = require('express');
 const database = require('./config/database');
-
+require('dotenv').config();
 /**
  * app.js requires the routes for Users, Tickets and Tracks
  */
@@ -17,7 +17,7 @@ const ticketTrack = require('./routes/ticketTrackRoute')
 const { User, Ticket, TicketTrack } = require('./models/relations'); // importa models + relations
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(userRouter);
